@@ -51,7 +51,7 @@ public class BookUploadService {
                             List<Book> books = new ArrayList<>();
 
                             for (Row row : sheet) {
-                                if (row.getRowNum() == 0) continue; // Skip header
+                                if (row.getRowNum() == 0) continue;
 
                                 Book book = new Book();
                                 book.setTitle(row.getCell(0).getStringCellValue());

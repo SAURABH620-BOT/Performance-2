@@ -2,9 +2,10 @@ package com.magic_saurabh.service;
 
 import com.magic_saurabh.model.Book;
 
-
 import com.magic_saurabh.repository.BookRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -27,7 +28,8 @@ public class BookService {
 
     public Mono<Book> getBookById(String id) {
         return bookRepository.findById(id);
-        
+        //  .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id: " + id)))
+
     }
 
     public Mono<Book> createBook(Book book) {

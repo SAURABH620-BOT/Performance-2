@@ -25,8 +25,8 @@ public class SecurityConfig {
         return http.csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchanges -> exchanges
                         .pathMatchers("/auth/**").permitAll() // Public endpoints
-                        .pathMatchers("/swagger-ui/**", "/v3/api-docs/**", "/webjars/**").permitAll() // Allow Swagger
-                        .anyExchange().authenticated()) // Secure all other endpoints
+                        .pathMatchers("/swagger-ui/**", "/v3/api-docs/**", "/webjars/**").permitAll()
+                        .anyExchange().authenticated())
                 .securityContextRepository(securityContextRepository)
                 .build();
     }
